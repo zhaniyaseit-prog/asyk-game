@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
-  <meta charset="UTF-8">
-  <title>Асық ойыны</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Асық – Информатика</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="menu">
-  <h1>Информатика – Асық ойыны</h1>
+<div id="menu" class="screen">
+  <h1>🎮 Асық – Информатика</h1>
 
-  <div id="namePanel" class="card">
-    <h3>Оқушы туралы</h3>
-    <input id="studentName" type="text" placeholder="Аты-жөніңді жаз">
-    <button id="startBtn">Ойынды бастау</button>
-    <button id="teacherBtn">👩‍🏫 Мұғалім режимі</button>
-  </div>
+  <input id="studentName" placeholder="Атыңды енгіз">
+  <button id="startBtn">Ойынды бастау</button>
+
+  <button class="teacherBtn" onclick="goTeacher()">👩‍🏫 Мұғалім</button>
 </div>
 
-<div id="game" class="hidden">
+<div id="game" class="screen hidden">
+  <div class="topBar">
+    <span id="qText"></span>
+    <span id="scoreText"></span>
+  </div>
+
   <canvas id="world"></canvas>
-
-  <div id="hud">
-    <span id="questionNum"></span>
-    <span id="scoreTxt"></span>
-    <div id="questionBox"></div>
-  </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
 <script src="game.js"></script>
 </body>
 </html>
