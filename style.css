@@ -1,63 +1,27 @@
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  font-family: system-ui, Arial;
-  background: #f4f8ff;
-}
-
-.screen {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.hidden { display: none; }
-
-h1 {
-  color: #2563eb;
-  margin-bottom: 20px;
-}
-
-input {
-  width: 80%;
-  max-width: 300px;
-  padding: 14px;
-  font-size: 16px;
-  border-radius: 14px;
-  border: 1px solid #c7d2fe;
-  margin-bottom: 15px;
-}
-
-button {
-  width: 80%;
-  max-width: 300px;
-  padding: 14px;
-  border-radius: 30px;
-  border: none;
-  background: #2563eb;
-  color: white;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.teacherBtn {
-  background: #64748b;
-}
-
-.topBar {
-  width: 100%;
-  padding: 12px 16px;
-  display: flex;
-  justify-content: space-between;
-  background: white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-#world {
-  width: 100vw;
-  height: calc(100vh - 50px);
-  touch-action: none;
-}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Arial,sans-serif;color:#382414}
+body{background:#e9d1a0;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;opacity:.13;background-image:radial-gradient(#6e4824 1px,transparent 1px);background-size:12px 12px;pointer-events:none}
+.game-wrap{max-width:1100px;margin:auto;padding:18px}
+header{height:62px;border-bottom:3px solid #805128;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.logo{font-weight:900;letter-spacing:2px;color:#7d2c21;font-size:20px}.logo span{vertical-align:middle}.hud{display:flex;gap:12px}.hud span{background:#f6ead1;border:2px solid #b88a4f;border-radius:12px;padding:9px 14px;font-weight:800}
+.screen{max-width:720px;margin:55px auto;background:#f8eed9;border:3px solid #815128;border-radius:28px;padding:45px 25px;text-align:center;box-shadow:0 20px 50px #57371522}.title-ornament{font-size:24px;color:#9b672d}.hero-asyk{font-size:90px;margin:15px;filter:drop-shadow(0 10px 3px #57371540)}
+.screen h1{font-size:38px;line-height:1.15}.screen h1 strong{color:#a03226}.screen p{color:#6d563d;line-height:1.7}.screen input{display:block;width:min(100%,470px);margin:22px auto;padding:16px;border:2px solid #c5a06b;border-radius:13px;background:#fff9ed;font-size:16px}
+button{border:0;background:#a33227;color:#fff4db;border-radius:12px;padding:15px 26px;font-weight:900;font-size:16px;cursor:pointer;box-shadow:0 6px 0 #70241d}
+button:active{transform:translateY(3px);box-shadow:0 3px 0 #70241d}
+.hidden{display:none!important}.question-card{background:#f8eed9;border:3px solid #815128;border-radius:20px;padding:18px 24px;text-align:center;margin-bottom:12px}.q-label{color:#a03226;font-size:12px;font-weight:900;letter-spacing:2px}.question-card h2{font-size:23px;line-height:1.4;margin:8px 0}.code{max-width:600px;margin:10px auto 0;background:#211b16;color:#f1d49b;padding:13px;border-radius:10px;text-align:left;font:15px monospace;white-space:pre-wrap}
+#arena{position:relative;height:530px;border:5px solid #70251e;border-radius:24px;background:radial-gradient(circle at center,#11734d,#075438 72%);overflow:hidden;box-shadow:inset 0 0 70px #042f2055}
+#arena:before{content:"";position:absolute;inset:14px;border:2px dashed #e3bc72;border-radius:17px;opacity:.5;pointer-events:none}
+.target-ring{position:absolute;width:210px;height:210px;border:2px solid #d5ad67;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);opacity:.18}
+#aimSvg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+#aimLine{stroke:#f5d27f;stroke-width:5;stroke-dasharray:10 8;opacity:0}
+#arrowHead{fill:#f5d27f;opacity:0}
+.answers{position:absolute;inset:20px;display:grid;grid-template-columns:1fr 1fr;gap:18px;align-content:space-between;padding:15px;z-index:3}
+.answer{background:#f9efd8;color:#4a2d19;border:3px solid #c4934f;border-radius:18px;min-height:90px;padding:14px;font-size:16px;box-shadow:0 7px 0 #73491f;transition:.2s;max-width:330px}
+.answer:nth-child(2n){justify-self:end}.answer:hover{transform:translateY(-3px);background:#fff8e8}.answer.correct{background:#bfe3b9;border-color:#43824c}.answer.wrong{background:#efb5aa;border-color:#a5362b}
+#sling{position:absolute;left:50%;top:50%;width:1px;height:1px;z-index:5}.asyk{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100px;height:82px;padding:0;border:3px solid #8f5d2b;border-radius:55%;background:linear-gradient(145deg,#edca83,#a66c30);font-size:45px;box-shadow:inset -9px -10px 15px #70471f55,0 9px 0 #4b351e;cursor:grab;display:flex;align-items:center;justify-content:center;transition:transform .08s;user-select:none;touch-action:none}
+.asyk span{position:absolute;bottom:-28px;font-size:9px;letter-spacing:1px;color:#f2d79e;font-weight:900}.asyk.drag{cursor:grabbing;transition:none}
+.band{position:absolute;width:125px;height:8px;background:#d7aa61;top:50%;border-radius:20px;transform-origin:right center;z-index:-1;opacity:.9}.band.left{right:42px;transform:rotate(22deg)}.band.right{left:42px;transform:rotate(-22deg);transform-origin:left center}
+.hint{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);color:#efd39b;background:#073e2b99;border:1px solid #d5ad67;padding:8px 14px;border-radius:20px;font-size:12px;white-space:nowrap}
+.power{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);width:180px;height:8px;background:#083e2d;border-radius:10px;overflow:hidden}.power i{display:block;width:0;height:100%;background:#e2b55e}
+#feedback{text-align:center;min-height:45px;font-weight:900;padding:12px;font-size:18px}.next{display:block;margin:0 auto}.final{font-size:65px;font-weight:900;color:#9c3026;margin:18px}.final small{font-size:25px;color:#704b2b}
+@media(max-width:700px){.game-wrap{padding:10px}.screen{margin:25px auto;padding:30px 18px}.screen h1{font-size:29px}.question-card h2{font-size:19px}#arena{height:560px}.answers{gap:10px;padding:8px}.answer{min-height:100px;font-size:14px}.asyk{width:82px;height:68px;font-size:38px}.hint{font-size:10px;max-width:90%;text-align:center;white-space:normal}.logo{font-size:16px}.hud span{padding:7px 9px;font-size:12px}}
