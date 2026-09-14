@@ -2,31 +2,66 @@
 <html lang="kk">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Асық – Информатика</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Асық ату — Информатика</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="game-wrap">
+  <header>
+    <div class="logo">🪨 <span>АСЫҚ АТУ</span></div>
+    <div class="hud"><span id="qCounter">1 / 15</span><span>⭐ <b id="score">0</b></span></div>
+  </header>
 
-<div id="menu" class="screen">
-  <h1>🎮 Асық – Информатика</h1>
+  <section id="start" class="screen">
+    <div class="title-ornament">◆ ◇ ◆</div>
+    <div class="hero-asyk">🪨</div>
+    <h1>ИНФОРМАТИКА<br><strong>АСЫҚ АТУ</strong></h1>
+    <p>Сұрақты оқы. Асықты басып, рогатка сияқты кері соз.<br>
+    Дұрыс жауапқа бағыттап, жібер!</p>
+    <input id="playerName" placeholder="Оқушының аты-жөні">
+    <button id="startBtn">🎯 ОЙЫНДЫ БАСТАУ</button>
+  </section>
 
-  <input id="studentName" placeholder="Атыңды енгіз">
-  <button id="startBtn">Ойынды бастау</button>
+  <section id="play" class="hidden">
+    <div class="question-card">
+      <div class="q-label" id="qType">АСЫҚ №1</div>
+      <h2 id="question"></h2>
+      <div id="code" class="code hidden"></div>
+    </div>
 
-  <button class="teacherBtn" onclick="goTeacher()">👩‍🏫 Мұғалім</button>
+    <div id="arena">
+      <div class="target-ring"></div>
+      <svg id="aimSvg" viewBox="0 0 1000 600" preserveAspectRatio="none">
+        <line id="aimLine" x1="500" y1="300" x2="500" y2="300"></line>
+        <polygon id="arrowHead" points="500,300 500,300 500,300"></polygon>
+      </svg>
+
+      <div class="answers" id="answers"></div>
+
+      <div id="sling">
+        <div class="band left"></div>
+        <div class="band right"></div>
+        <div id="asyk" class="asyk" aria-label="Асықты ұстап керіңіз">🪨<span>ТАРТ</span></div>
+      </div>
+
+      <div class="hint">🪨 Асықты басып ұстап, жауапқа қарай созып жіберіңіз</div>
+      <div id="power" class="power hidden"><i></i></div>
+    </div>
+
+    <div id="feedback"></div>
+    <button id="nextBtn" class="next hidden">КЕЛЕСІ АСЫҚ ➜</button>
+  </section>
+
+  <section id="finish" class="screen hidden">
+    <div class="hero-asyk">🏆</div>
+    <h1>АСЫҚТАРДЫҢ БӘРІ АТЫЛДЫ!</h1>
+    <p id="resultName"></p>
+    <div class="final"><span id="finalScore">0</span><small>/ 150</small></div>
+    <h2 id="resultText"></h2>
+    <button onclick="location.reload()">🔄 ҚАЙТА ОЙНАУ</button>
+  </section>
 </div>
-
-<div id="game" class="screen hidden">
-  <div class="topBar">
-    <span id="qText"></span>
-    <span id="scoreText"></span>
-  </div>
-
-  <canvas id="world"></canvas>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
 <script src="game.js"></script>
 </body>
 </html>
